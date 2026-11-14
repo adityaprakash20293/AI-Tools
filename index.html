@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Tools & Technologies | Portfolio Demo</title>
+<style>
+:root{--navy:#102B45;--teal:#168F91;--teal2:#087F82;--ink:#24384b;--muted:#5b6d7d;--bg:#f3f7f9;--line:#dfe8ed;--pale:#e8f4f3}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:Arial,sans-serif;color:var(--ink);line-height:1.55}
+header{background:var(--navy);color:white;padding:28px max(22px,calc((100% - 1000px)/2))}
+.eyebrow{color:#9ed8d5;text-transform:uppercase;letter-spacing:1.5px;font-size:11px;font-weight:bold}
+h1{font-size:27px;margin:8px 0}header p{margin:0;color:#d6e2eb;max-width:750px;font-size:14px}
+main{max-width:1000px;margin:24px auto;padding:0 18px 42px}
+.notice{background:white;border:1px solid var(--line);border-left:4px solid var(--teal);padding:12px 15px;border-radius:7px;font-size:12px;color:var(--muted);margin-bottom:18px}
+.controls{background:#fff;border:1px solid var(--line);border-radius:9px;padding:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+input,select{padding:10px;border:1px solid var(--line);border-radius:5px;font-size:13px;color:var(--ink);background:white}
+input{flex:1;min-width:200px}select{min-width:175px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:16px}
+.card{background:white;border:1px solid var(--line);border-radius:9px;padding:18px;display:flex;flex-direction:column;min-height:210px}
+.tag{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--teal2);font-weight:bold}
+.card h2{font-size:17px;color:var(--navy);margin:7px 0}.card p{font-size:13px;color:var(--muted);margin:0 0 12px}
+.card .best{font-size:12px;background:#f2f7f9;padding:10px;border-radius:6px;margin-top:auto}
+.card button{margin-top:12px;align-self:flex-start;background:var(--teal);color:white;border:0;padding:9px 13px;border-radius:5px;font-weight:bold;cursor:pointer;font-size:12px}
+.card button:hover{background:var(--teal2)}
+.detail{display:none;background:#fff;border:1px solid var(--line);border-radius:9px;padding:20px;margin-top:16px}
+.detail h2{margin-top:0;color:var(--navy)}.detail ul{padding-left:20px;font-size:13px;color:var(--muted)}
+.empty{display:none;padding:24px;text-align:center;color:var(--muted);background:white;border:1px solid var(--line);border-radius:8px;margin-top:15px}
+footer{text-align:center;color:#788795;font-size:11px;padding:16px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}h1{font-size:23px}}
+</style></head><body>
+<header><div class="eyebrow">Independent portfolio demonstration</div><h1>AI Tools & Technologies</h1><p>A practical guide to common AI tool categories and the kinds of work they can support. Explore use cases, selection considerations, and responsible-use checks.</p></header>
+<main>
+<div class="notice"><strong>Demo context:</strong> This is an independent, vendor-neutral learning aid. It describes tool categories rather than endorsing specific products. Capabilities, pricing, and data-handling terms vary by provider and change over time.</div>
+<div class="controls">
+<input id="search" type="search" placeholder="Search use cases or capabilities…" aria-label="Search tools">
+<select id="category" aria-label="Filter by category"><option value="all">All categories</option><option>Research & knowledge</option><option>Writing & content</option><option>Visual & media</option><option>Workflow & productivity</option></select>
+<select id="audience" aria-label="Filter by audience"><option value="all">All work areas</option><option>Learning & enablement</option><option>Operations</option><option>Communications</option><option>Product teams</option></select>
+</div>
+<div class="grid" id="cards">
+<article class="card" data-category="Research & knowledge" data-audience="Learning & enablement,Operations,Product teams" data-search="research summarize documents knowledge discovery compare sources"><span class="tag">Research & knowledge</span><h2>Research assistants</h2><p>Support source discovery, document summarization, topic exploration, and synthesis of approved reference material.</p><div class="best"><strong>Useful for:</strong> preparing SME interviews, summarizing reference documents, and building initial topic outlines.</div><button data-detail="research">Explore use case</button></article>
+<article class="card" data-category="Writing & content" data-audience="Learning & enablement,Communications,Operations" data-search="writing drafting rewrite simplify tone emails guides scripts"><span class="tag">Writing & content</span><h2>Writing assistants</h2><p>Help create and refine first drafts, adapt tone, simplify explanations, and structure content for different audiences.</p><div class="best"><strong>Useful for:</strong> job aids, FAQs, communication drafts, and course scripts.</div><button data-detail="writing">Explore use case</button></article>
+<article class="card" data-category="Visual & media" data-audience="Learning & enablement,Communications" data-search="visual image generation video avatar graphics storyboard media"><span class="tag">Visual & media</span><h2>Visual and media tools</h2><p>Assist with concept visuals, storyboards, narration, demonstrations, and other media assets.</p><div class="best"><strong>Useful for:</strong> visual explanations, learning videos, and draft storyboards.</div><button data-detail="media">Explore use case</button></article>
+<article class="card" data-category="Workflow & productivity" data-audience="Operations,Product teams,Learning & enablement" data-search="automation workflow productivity classification extraction data tasks"><span class="tag">Workflow & productivity</span><h2>Workflow assistants</h2><p>Support repeatable tasks such as categorizing requests, extracting structured information, and drafting workflow steps.</p><div class="best"><strong>Useful for:</strong> intake triage, content inventories, and process documentation.</div><button data-detail="workflow">Explore use case</button></article>
+</div>
+<div class="empty" id="empty">No categories match your search. Try another term or filter.</div>
+<section class="detail" id="detail">
+<h2 id="detailTitle"></h2><p id="detailIntro" class="muted"></p><h3 style="color:#102B45;font-size:14px">Example workflow</h3><ul id="detailSteps"></ul><h3 style="color:#102B45;font-size:14px">Selection and review checks</h3><ul id="detailChecks"></ul>
+</section>
+<footer>Illustrative categories • Verify provider capabilities and organizational approval before use</footer>
+</main>
+<script>
+const details={
+research:{title:'Research assistants',intro:'Use these tools to accelerate early-stage research while keeping source quality and traceability visible.',steps:['Define the research question and intended audience.','Provide approved source documents or use a tool with transparent source references.','Ask for a structured summary, key themes, and unanswered questions.','Verify important claims against the original sources before reuse.'],checks:['Can you inspect the original sources?','Are sensitive documents permitted in this service?','Does the output distinguish evidence from assumptions?']},
+writing:{title:'Writing assistants',intro:'Use these tools to create a first draft or adapt existing content—not to bypass subject-matter review.',steps:['Specify the audience, purpose, format, tone, and length.','Provide approved source content and any required terminology.','Request a draft with unclear or missing details flagged.','Edit the output and have the process owner validate it.'],checks:['Is the content factually accurate and current?','Does it follow brand, accessibility, and style requirements?','Has a qualified reviewer approved the final version?']},
+media:{title:'Visual and media tools',intro:'Use media tools to explore visual approaches and produce draft assets for review.',steps:['Define the learning objective and key message.','Create a storyboard or visual brief before generating assets.','Review the generated content for accuracy, accessibility, and rights.','Use approved assets in the final learning experience.'],checks:['Are image, voice, and likeness rights respected?','Are captions and accessible alternatives available?','Could the visual misrepresent a real product or process?']},
+workflow:{title:'Workflow assistants',intro:'Use workflow tools for well-defined, repeatable tasks with clear review and escalation points.',steps:['Map the current process and identify a low-risk task.','Define inputs, expected outputs, exceptions, and an owner.','Test with representative examples and document failure cases.','Monitor quality and retain a human review step where needed.'],checks:['Is there an approved data flow and access model?','Can users correct errors and escalate exceptions?','Are decisions auditable and monitored?']}
+};
+document.getElementById('cards').addEventListener('click',e=>{const b=e.target.closest('button[data-detail]');if(!b)return;const d=details[b.dataset.detail];document.getElementById('detailTitle').textContent=d.title;document.getElementById('detailIntro').textContent=d.intro;document.getElementById('detailSteps').innerHTML=d.steps.map(x=>`<li>${x}</li>`).join('');document.getElementById('detailChecks').innerHTML=d.checks.map(x=>`<li>${x}</li>`).join('');const box=document.getElementById('detail');box.style.display='block';box.scrollIntoView({behavior:'smooth',block:'nearest'})});
+function filter(){const q=document.getElementById('search').value.toLowerCase();const cat=document.getElementById('category').value;const aud=document.getElementById('audience').value;let n=0;document.querySelectorAll('.card').forEach(c=>{const ok=(cat==='all'||c.dataset.category===cat)&&(aud==='all'||c.dataset.audience.split(',').includes(aud))&&c.dataset.search.includes(q)||false;const show=ok||((cat==='all'||c.dataset.category===cat)&&(aud==='all'||c.dataset.audience.split(',').includes(aud))&&(c.innerText.toLowerCase().includes(q)));c.style.display=show?'flex':'none';if(show)n++});document.getElementById('empty').style.display=n?'none':'block'}
+['search','category','audience'].forEach(id=>document.getElementById(id).addEventListener(id==='search'?'input':'change',filter));
+</script></body></html>
